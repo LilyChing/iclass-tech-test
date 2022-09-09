@@ -3,10 +3,15 @@ version: "3"
 services:
   mysql:
     build: "./mysql"
+    #image: mysql:latest
+    #command: --default-authentication-plugin=mysql_native_password
+    restart: always
     ports:
       - "127.0.0.1:13306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "verysecurerootpasswordiclassTECHtessolution12345672019docker"
+    #volumes:
+    #  - ./mysql:/docker-entrypoint-initdb.d
   pma:
     image: "phpmyadmin/phpmyadmin:latest"
     ports:

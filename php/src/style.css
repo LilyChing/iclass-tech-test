@@ -1,1 +1,22 @@
-
+.row{
+    display: flex;
+}
+.row div{
+    flex: 1;
+    padding: 20px 0;
+}
+.header{
+    text-align: center;
+    font-weight: 700;
+}
+.genF{
+    background-color: red;
+    color: white;
+}
+.genM{
+    background-color: blue;
+    color: white;
+}
+.num{
+    text-align: right;
+}
