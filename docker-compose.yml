@@ -1,10 +1,20 @@
 version: "3"
 
 services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "28081:80"
+    volumes:
+      - ./php/src:/var/www/html/
+    depends_on:
+    - mysql 
   mysql:
     build: "./mysql"
     #image: mysql:latest
-    #command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - "127.0.0.1:13306:3306"
@@ -21,3 +31,7 @@ services:
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: "verysecurerootpasswordiclassTECHtessolution12345672019docker"
+
+volumes:
+  mysql:
+    driver: "local"

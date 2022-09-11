@@ -15,7 +15,12 @@
             <div class="header">Served for</div>
         </div>
         <?php
-        $dbconnection = mysqli_connect("localhost:13306", "root", "verysecurerootpasswordiclassTECHtessolution12345672019docker", "employees");
+        define('DB_HOST', 'mysql:3306');
+        define('DB_NAME', 'employees');
+        define('DB_USER', 'root');
+        define('DB_PASSWORD', 'verysecurerootpasswordiclassTECHtessolution12345672019docker');
+        
+        $dbconnection = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
         $managerQ = mysqli_query($dbconnection, "SELECT * FROM `dept_manager` WHERE `to_date`> cast(now() as date) ORDER BY `from_date` ASC");
         while ($manager = mysqli_fetch_assoc($managerQ)){
             // Get manager name from employees
